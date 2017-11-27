@@ -37,7 +37,15 @@ public class Jonction {
 		} catch(IndexOutOfBoundsException e){
 			//System.err.println("Bite");
 		}
-		
+	}
+	
+	public Jonction(Segment s){
+		segments = new ArrayList<Segment>();
+		segments.add(s);
+		if(s.getjA() == null)
+			s.setjA(this);
+		else
+			s.setjB(this);
 	}
 
 	@Override

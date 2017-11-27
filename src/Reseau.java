@@ -17,6 +17,10 @@ public final class Reseau {
 	 * 
 	 */
 	private Reseau(){
+		creerReseau();
+	}
+	
+	public void creerReseau(){
 		jonctions = new ArrayList<Jonction>();
 		
 		ArrayList<Segment> segs = new ArrayList<Segment>();
@@ -53,6 +57,22 @@ public final class Reseau {
 		System.out.println();
 		for(Jonction j : jonctions)
 			System.out.println(j.toString());
+		
+		System.out.println();
+		
+		for(Segment s : segs){
+			if(s.getjA() == null || s.getjB() == null)
+				jonctions.add(new Jonction(s));
+		}
+		segs.forEach(item->System.out.println(item));
+	}
+	
+	public void ajouterSemaphores(){
+		
+	}
+	
+	public void ajouterVoitures(){
+		
 	}
 	
 	public final static Reseau makeInstance(){
