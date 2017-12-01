@@ -20,6 +20,23 @@ public final class Reseau {
 		creerReseau();
 	}
 	
+	/*
+	 * Ajouted des sémaphores au réseau
+	 */
+	public void ajouterSemaphores(){
+		
+	}
+	
+	/**
+	 * Ajoute des voitures au réseau
+	 */
+	public void ajouterVoitures(){
+		
+	}
+	
+	/**
+	 * Crée des segments de route et des jonctions et les lie entre eux
+	 */
 	public void creerReseau(){
 		jonctions = new ArrayList<Jonction>();
 		
@@ -65,14 +82,6 @@ public final class Reseau {
 				jonctions.add(new Jonction(s));
 		}
 		segs.forEach(item->System.out.println(item));
-	}
-	
-	public void ajouterSemaphores(){
-		
-	}
-	
-	public void ajouterVoitures(){
-		
 	}
 	
 	public final static Reseau makeInstance(){
