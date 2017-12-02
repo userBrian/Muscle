@@ -21,9 +21,10 @@ public class Segment {
 	/**
 	 * 
 	 */
-	public Segment() {
+	public Segment(int longueur) {
 		id = lettre;
 		lettre++;
+		this.longueur = longueur;
 	}
 
 	public Jonction getjA() {

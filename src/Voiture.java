@@ -8,15 +8,16 @@
  */
 public class Voiture {
 
+	private final String id;
 	private int vitesse;
 	private int sens;
-	private 
+	private int position;
 	
 	/**
 	 * 
 	 */
-	public Voiture() {
-		
+	public Voiture(String id) {
+		this.id = id;
 	}
 
 }

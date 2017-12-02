@@ -31,7 +31,10 @@ public final class Reseau {
 	 * Ajoute des voitures au réseau
 	 */
 	public void ajouterVoitures(){
-		
+		Voiture v1 = new Voiture("Bazinmobile");
+		Voiture v2 = new Voiture("Polythug");
+		Voiture v3 = new Voiture("Batmobile");
+		Voiture v4 = new Voiture("Pussy Wagon");
 	}
 	
 	/**
@@ -44,7 +47,7 @@ public final class Reseau {
 		ArrayList<Segment> aAjouter = new ArrayList<Segment>();
 		
 		for(int i = 0; i < 9; i++)
-			segs.add(new Segment());
+			segs.add(new Segment(50));
 		jonctions.add(new Jonction(segs, 4));
 		
 		for(int i = 3; i < 7; i++){
