@@ -35,6 +35,11 @@ public final class Reseau {
 		Voiture v2 = new Voiture("Polythug");
 		Voiture v3 = new Voiture("Batmobile");
 		Voiture v4 = new Voiture("Pussy Wagon");
+		
+		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);	v1.setPosition(0);	v1.setSens(0);	v1.setVitesse(jonctions.get(0).getSegments().get(0).getVitesseMax());
+		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);
+		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);
+		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);
 	}
 	
 	/**

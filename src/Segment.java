@@ -11,17 +11,20 @@ import java.util.ArrayList;
 public class Segment {
 
 	private int longueur;
+	private int vitesseMax;
 	private ArrayList<Semaphore> semaphores;
 	private ArrayList<Capteur> capteurs;
+	private ArrayList<Voiture> voitures;
 	private Jonction jA;
 	private Jonction jB;
-	public char id;
+	public final char id;
 	private static char lettre = 'A';
 	
 	/**
 	 * 
 	 */
 	public Segment(int longueur) {
+		voitures = new ArrayList<Voiture>();
 		id = lettre;
 		lettre++;
 		this.longueur = longueur;
@@ -43,6 +46,22 @@ public class Segment {
 		this.jB = jB;
 	}
 	
+	public ArrayList<Voiture> getVoitures() {
+		return voitures;
+	}
+
+	public void setVoitures(ArrayList<Voiture> voitures) {
+		this.voitures = voitures;
+	}
+
+	public int getVitesseMax() {
+		return vitesseMax;
+	}
+
+	public void setVitesseMax(int vitesseMax) {
+		this.vitesseMax = vitesseMax;
+	}
+
 	@Override
 	public String toString(){
 		if(jA != null && jB != null)

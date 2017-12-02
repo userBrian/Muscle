@@ -10,11 +10,12 @@ import java.util.ArrayList;
  */
 public class Jonction {
 
-	private ArrayList<Jonction> jonctions;
 	private ArrayList<Segment> segments;
 	
 	/**
 	 * 
+	 * @param segments
+	 * @param nb
 	 */
 	public Jonction(ArrayList<Segment> segments, int nb) {
 		try{
@@ -35,10 +36,14 @@ public class Jonction {
 				}
 			}
 		} catch(IndexOutOfBoundsException e){
-			//System.err.println("Bite");
+			System.err.println("Au moins un des segments est déjà associé à deux jonctions.");
 		}
 	}
 	
+	/**
+	 * 
+	 * @param s Le segment à associer à la jonction
+	 */
 	public Jonction(Segment s){
 		segments = new ArrayList<Segment>();
 		segments.add(s);
@@ -46,6 +51,14 @@ public class Jonction {
 			s.setjA(this);
 		else
 			s.setjB(this);
+	}
+	
+	public ArrayList<Segment> getSegments() {
+		return segments;
+	}
+
+	public void setSegments(ArrayList<Segment> segments) {
+		this.segments = segments;
 	}
 
 	@Override
