@@ -6,13 +6,13 @@
  * @author Brian
  *
  */
-public class Panneau implements Semaphore{
+public class Panneau extends Semaphore{
 
 	/**
 	 * 
 	 */
-	public Panneau() {
-		// TODO Auto-generated constructor stub
+	public Panneau(int sens) {
+		super(sens);
 	}
 
 }
