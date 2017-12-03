@@ -11,7 +11,7 @@ public class Voiture {
 	private final String id;
 	private int vitesse;
 	private int sens;
-	private int position;
+	private int position; // Réfléchir à l'idée d'en faire un tableau pour avoir aussi le nom du segment
 	
 	/**
 	 * 
@@ -42,5 +42,10 @@ public class Voiture {
 
 	public void setVitesse(int vitesse) {
 		this.vitesse = vitesse;
+	}
+	
+	@Override
+	public String toString(){
+		return "La voiture " + id + " roule sur le segment ... à une vitesse de " + vitesse;
 	}
 }
