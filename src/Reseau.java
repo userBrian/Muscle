@@ -12,47 +12,51 @@ public final class Reseau {
 
 	private static Reseau reseau = null;
 	private ArrayList<Jonction> jonctions;
+	private ArrayList<Segment> segs;
 	
 	/**
 	 * 
 	 */
 	private Reseau(){
+		segs = new ArrayList<Segment>();
+		for(int i = 0; i < 9; i++)
+			segs.add(new Segment(50));
+		
 		creerReseau();
+		ajouterSemaphores();
+		ajouterVoitures();
 	}
 	
-	/*
-	 * Ajouted des sémaphores au réseau
+	/**
+	 * Ajoute des sémaphores au réseau
 	 */
-	public void ajouterSemaphores(){
+	private void ajouterSemaphores(){
 		
 	}
 	
 	/**
 	 * Ajoute des voitures au réseau
 	 */
-	public void ajouterVoitures(){
+	private void ajouterVoitures(){
 		Voiture v1 = new Voiture("Bazinmobile");
 		Voiture v2 = new Voiture("Polythug");
 		Voiture v3 = new Voiture("Batmobile");
 		Voiture v4 = new Voiture("Pussy Wagon");
 		
-		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);	v1.setPosition(0);	v1.setSens(0);	v1.setVitesse(jonctions.get(0).getSegments().get(0).getVitesseMax());
-		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);
-		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);
-		jonctions.get(0).getSegments().get(0).getVoitures().add(v1);
+		segs.get(0).getVoitures().add(v1);	v1.setPosition(0);	v1.setSens(0);	v1.setVitesse(segs.get(0).getVitesseMax());
+		segs.get(8).getVoitures().add(v2);	v2.setPosition(5);	v2.setSens(1);	v2.setVitesse(segs.get(8).getVitesseMax());
+		segs.get(7).getVoitures().add(v3);	v3.setPosition(0);	v3.setSens(0);	v3.setVitesse(segs.get(7).getVitesseMax());
+		segs.get(4).getVoitures().add(v4);	v4.setPosition(0);	v4.setSens(0);	v4.setVitesse(segs.get(4).getVitesseMax());
 	}
 	
 	/**
 	 * Crée des segments de route et des jonctions et les lie entre eux
 	 */
-	public void creerReseau(){
+	private void creerReseau(){
 		jonctions = new ArrayList<Jonction>();
 		
-		ArrayList<Segment> segs = new ArrayList<Segment>();
 		ArrayList<Segment> aAjouter = new ArrayList<Segment>();
 		
-		for(int i = 0; i < 9; i++)
-			segs.add(new Segment(50));
 		jonctions.add(new Jonction(segs, 4));
 		
 		for(int i = 3; i < 7; i++){
