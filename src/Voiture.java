@@ -6,46 +6,29 @@
  * @author Brian
  * HAHAHAHA
  */
-public class Voiture {
+public class Voiture extends Vehicule {
 
-	private final String id;
-	private int vitesse;
-	private int sens;
-	private int position; // Réfléchir à l'idée d'en faire un tableau pour avoir aussi le nom du segment
+	// Rï¿½flï¿½chir ï¿½ l'idï¿½e d'en faire un tableau pour avoir aussi le nom du segment
 	
 	/**
 	 * 
 	 */
 	public Voiture(String id) {
-		this.id = id;
-	}
-
-	public int getPosition() {
-		return position;
-	}
-
-	public void setPosition(int position) {
-		this.position = position;
+		super(id);
 	}
 	
-	public int getSens() {
-		return sens;
+	//la vitesse ne peut pas etre superieur a ce qu'impose les semaphores
+	@Override
+	public void setVitesse(int vitesse){
+		if (vitesse > this.getDest().getVitesseMax())
+			vitesse = this.getDest().getVitesseMax();
+		this.vitesse=vitesse;
 	}
 
-	public void setSens(int sens) {
-		this.sens = sens;
-	}
-
-	public int getVitesse() {
-		return vitesse;
-	}
-
-	public void setVitesse(int vitesse) {
-		this.vitesse = vitesse;
-	}
+	
 	
 	@Override
 	public String toString(){
-		return "La voiture " + id + " roule sur le segment ... à une vitesse de " + vitesse;
+		return "La voiture " + this.getId() + " roule sur le segment ... ï¿½ une vitesse de " + vitesse;
 	}
 }

@@ -69,4 +69,6 @@ public class Segment {
 		else
 			return id + " incomplet";
 	}
+	
+	//FONCTION UPDATE DES VOITURES
 }
