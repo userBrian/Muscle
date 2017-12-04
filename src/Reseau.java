@@ -24,6 +24,7 @@ public final class Reseau {
 		creerSegments();
 		creerJonctions();
 		jonctions.forEach(items->System.out.println(items));
+		updateSegments();
 		ajouterSemaphores();
 		ajouterVoitures();
 	}
@@ -120,6 +121,21 @@ public final class Reseau {
 		aAjouter.add(segs.get(1));	// A vers J1
 		aAjouter.add(segs.get(15));	// H vers J3
 		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(3));	// H vers J3
+		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(5));	// H vers J3
+		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(9));	// H vers J3
+		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(11));	// H vers J3
+		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(17));	// H vers J3
+		jonctions.add(new Jonction(aAjouter));
 	}
 	
 	private void creerSegments(){
@@ -131,8 +147,8 @@ public final class Reseau {
 		segs.add(new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add(new Segment(20));
+		segs.add(new Segment(20));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
 		segs.add(new Segment(50));
@@ -158,6 +174,27 @@ public final class Reseau {
 		segs.add(new Segment(50));
 		segs.add(new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
+	}
+	
+	private void updateSegments(){
+		segs.get(0).setJonc(jonctions.get(3));
+		segs.get(1).setJonc(jonctions.get(0));
+		segs.get(2).setJonc(jonctions.get(4));
+		segs.get(3).setJonc(jonctions.get(0));
+		segs.get(4).setJonc(jonctions.get(5));
+		segs.get(5).setJonc(jonctions.get(0));
+		segs.get(6).setJonc(jonctions.get(1));
+		segs.get(7).setJonc(jonctions.get(0));
+		segs.get(8).setJonc(jonctions.get(6));
+		segs.get(9).setJonc(jonctions.get(1));
+		segs.get(10).setJonc(jonctions.get(7));
+		segs.get(11).setJonc(jonctions.get(1));
+		segs.get(12).setJonc(jonctions.get(2));
+		segs.get(13).setJonc(jonctions.get(1));
+		segs.get(14).setJonc(jonctions.get(3));
+		segs.get(15).setJonc(jonctions.get(2));
+		segs.get(16).setJonc(jonctions.get(8));
+		segs.get(17).setJonc(jonctions.get(2));
 	}
 	
 	public final static Reseau makeInstance(){

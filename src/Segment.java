@@ -15,8 +15,7 @@ public class Segment {
 	private ArrayList<Semaphore> semaphores;
 	private ArrayList<Capteur> capteurs;
 	private ArrayList<Voiture> voitures;
-	private Jonction jA;
-	private Jonction jB;
+	private Jonction jonc;
 	public final char id;
 	private static char lettre = 'A';
 	
@@ -29,23 +28,15 @@ public class Segment {
 		//lettre++;
 		this.longueur = longueur;
 	}
-
-	public Jonction getjA() {
-		return jA;
-	}
-
-	public void setjA(Jonction jA) {
-		this.jA = jA;
-	}
-
-	public Jonction getjB() {
-		return jB;
-	}
-
-	public void setjB(Jonction jB) {
-		this.jB = jB;
-	}
 	
+	public Jonction getJonc() {
+		return jonc;
+	}
+
+	public void setJonc(Jonction jonc) {
+		this.jonc = jonc;
+	}
+
 	public static char getLettre() {
 		return lettre;
 	}
@@ -72,9 +63,6 @@ public class Segment {
 
 	@Override
 	public String toString(){
-		if(jA != null && jB != null)
-			return id + " complet";
-		else
-			return id + " incomplet";
+		return id + "";
 	}
 }
