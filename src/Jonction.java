@@ -33,7 +33,7 @@ public class Jonction {
 	public String toString(){
 		String str =  "Cette jonction relie " + segments.size() + " voies.";
 		for(int i = 0; i < segments.size(); i++)
-			str += " " + segments.get(i).id;
+			str += " " + segments.get(i).getId();
 		return str;
 	}
 }
