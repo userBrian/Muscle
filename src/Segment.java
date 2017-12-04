@@ -65,4 +65,6 @@ public class Segment {
 	public String toString(){
 		return id + "";
 	}
+	
+	//FONCTION UPDATE DES VOITURES
 }
