@@ -18,11 +18,12 @@ public final class Reseau {
 	 * 
 	 */
 	private Reseau(){
+		jonctions = new ArrayList<Jonction>();
 		segs = new ArrayList<Segment>();
-		for(int i = 0; i < 9; i++)
-			segs.add(new Segment(50));
 		
-		creerReseau();
+		creerSegments();
+		creerJonctions();
+		jonctions.forEach(items->System.out.println(items));
 		ajouterSemaphores();
 		ajouterVoitures();
 	}
@@ -52,8 +53,8 @@ public final class Reseau {
 	/**
 	 * Crée des segments de route et des jonctions et les lie entre eux
 	 */
-	private void creerReseau(){
-		jonctions = new ArrayList<Jonction>();
+	/*private void creerReseau(){
+		
 		
 		ArrayList<Segment> aAjouter = new ArrayList<Segment>();
 		
@@ -94,6 +95,69 @@ public final class Reseau {
 				jonctions.add(new Jonction(s));
 		}
 		segs.forEach(item->System.out.println(item));
+	}*/
+	
+	private void creerJonctions(){
+		ArrayList<Segment> aAjouter = new ArrayList<Segment>();
+		
+		aAjouter.add(segs.get(0));	// A vers J4
+		aAjouter.add(segs.get(2));	// B vers B1
+		aAjouter.add(segs.get(4));	// C vers B2
+		aAjouter.add(segs.get(6));	// D vers J2
+		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(7));	// D vers J1
+		aAjouter.add(segs.get(8));	// E vers B3	
+		aAjouter.add(segs.get(10));	// F vers B4
+		aAjouter.add(segs.get(12));	// G vers J3
+		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(13));	// G vers J2
+		aAjouter.add(segs.get(14));	// H vers J3
+		aAjouter.add(segs.get(16));	// I vers B5
+		jonctions.add(new Jonction(aAjouter));
+		
+		aAjouter.add(segs.get(1));	// A vers J1
+		aAjouter.add(segs.get(15));	// H vers J3
+		jonctions.add(new Jonction(aAjouter));
+	}
+	
+	private void creerSegments(){
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
+		
+		segs.add(new Segment(50));
+		segs.add(new Segment(50));
+		Segment.setLettre((char)(Segment.getLettre()+1));
 	}
 	
 	public final static Reseau makeInstance(){

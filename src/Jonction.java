@@ -40,6 +40,15 @@ public class Jonction {
 		}
 	}
 	
+	public Jonction(ArrayList<Segment> segs) {
+		segments = new ArrayList<Segment>();
+		
+		while(!segs.isEmpty()){
+			segments.add(segs.get(0));
+			segs.remove(0);
+		}
+	}
+	
 	/**
 	 * 
 	 * @param s Le segment à associer à la jonction

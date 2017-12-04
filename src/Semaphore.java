@@ -14,7 +14,7 @@ public abstract class Semaphore {
 	 * 
 	 */
 	public Semaphore(int sens) {
-		// TODO Auto-generated constructor stub
+		this.sens = sens;
 	}
 
 }

@@ -26,7 +26,7 @@ public class Segment {
 	public Segment(int longueur) {
 		voitures = new ArrayList<Voiture>();
 		id = lettre;
-		lettre++;
+		//lettre++;
 		this.longueur = longueur;
 	}
 
@@ -46,6 +46,14 @@ public class Segment {
 		this.jB = jB;
 	}
 	
+	public static char getLettre() {
+		return lettre;
+	}
+
+	public static void setLettre(char lettre) {
+		Segment.lettre = lettre;
+	}
+
 	public ArrayList<Voiture> getVoitures() {
 		return voitures;
 	}
