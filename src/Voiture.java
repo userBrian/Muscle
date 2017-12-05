@@ -25,10 +25,18 @@ public class Voiture extends Vehicule {
 		this.vitesse=vitesse;
 	}
 
-	
-	
 	@Override
 	public String toString(){
-		return "La voiture " + this.getId() + " roule sur le segment ... � une vitesse de " + vitesse;
+		return "La voiture " + this.getId() + " roule sur le segment ... a une vitesse de " + vitesse;
+	}
+	
+	
+	public static void main(String[] args) {
+		//TEST CAPTEUR
+		Voiture car = new Voiture("haha");
+		Capteur capt = new CapteurVitesse("route du sale", 50);
+		car.addObserver(capt);
+		car.setPosition(50);	
+
 	}
 }

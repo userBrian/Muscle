@@ -1,5 +1,7 @@
+import java.util.Observable;
 
-public abstract class Vehicule {
+
+public abstract class Vehicule extends Observable{
 
 	/**
 	 * @param args
@@ -7,12 +9,14 @@ public abstract class Vehicule {
 	
 	private final String id;
 	protected int vitesse;
-	private int sens;
 	private int position;
 	private Segment dest;
 	
+	//manque l'initialisation du segment
 	public Vehicule(String id) {
 		this.id = id;
+		this.vitesse = 0;
+		this.position = 0;
 	}
 	
 	
@@ -22,14 +26,8 @@ public abstract class Vehicule {
 
 	public void setPosition(int position) {
 		this.position = position;
-	}
-	
-	public int getSens() {
-		return sens;
-	}
-
-	public void setSens(int sens) {
-		this.sens = sens;
+		setChanged();
+		notifyObservers();
 	}
 
 	public int getVitesse() {
