@@ -16,7 +16,7 @@ public class Segment {
 	private ArrayList<Capteur> capteurs;
 	private ArrayList<Voiture> voitures;
 	private Jonction jonc;
-	private final char id;
+	public final char id;
 	private static char lettre = 'A';
 	
 	/**
@@ -25,13 +25,10 @@ public class Segment {
 	public Segment(int longueur) {
 		voitures = new ArrayList<Voiture>();
 		id = lettre;
+		//lettre++;
 		this.longueur = longueur;
 	}
 	
-	public char getId() {
-		return id;
-	}
-
 	public Jonction getJonc() {
 		return jonc;
 	}
