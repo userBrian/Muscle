@@ -13,6 +13,7 @@ public abstract class Vehicule extends Observable{
 	private Segment dest;
 	
 	//manque l'initialisation du segment
+	// On peut pas le faire dans le construteur je pense
 	public Vehicule(String id) {
 		this.id = id;
 		this.vitesse = 0;

@@ -44,6 +44,16 @@ public class Segment {
 	public static void setLettre(char lettre) {
 		Segment.lettre = lettre;
 	}
+	
+	
+
+	public ArrayList<Semaphore> getSemaphores() {
+		return semaphores;
+	}
+
+	public void setSemaphores(ArrayList<Semaphore> semaphores) {
+		this.semaphores = semaphores;
+	}
 
 	public ArrayList<Voiture> getVoitures() {
 		return voitures;
