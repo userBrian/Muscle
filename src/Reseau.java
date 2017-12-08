@@ -29,6 +29,10 @@ public final class Reseau {
 		ajouterVoitures();
 	}
 	
+	private static void afficherMenu(){
+		System.out.println("1. Derouler un intervalle de temps\n2. Consulter segment\n3. Consulter vehicules");
+	}
+	
 	/**
 	 * Ajoute des sémaphores au réseau
 	 */
@@ -161,6 +165,14 @@ public final class Reseau {
 	 */
 	public static void main(String[] args) {
 		Reseau.makeInstance();
+		boolean continuer = true;
+		char choix;
+		
+		System.out.println("Simulation de reseau routier");
+		do{
+			afficherMenu();
+			
+		} while(continuer);
 
 	}
 
