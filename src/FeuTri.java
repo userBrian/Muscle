@@ -11,8 +11,8 @@ public class FeuTri extends Feu {
 	/**
 	 * 
 	 */
-	public FeuTri() {
-		
+	public FeuTri(Couleur c) {
+		super(c);
 	}
 
 }
