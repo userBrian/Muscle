@@ -25,7 +25,6 @@ public class Segment {
 	public Segment(int longueur) {
 		voitures = new ArrayList<Voiture>();
 		id = lettre;
-		//lettre++;
 		this.longueur = longueur;
 	}
 	
