@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public final class Reseau {
 	private static Reseau reseau = null;
 	private ArrayList<Jonction> jonctions;
 	private ArrayList<Segment> segs;
-	private Map<String, Vehicule> voitures;
+	private HashMap<String, Vehicule> voitures;
 	
 	/**
 	 * 
@@ -23,10 +24,10 @@ public final class Reseau {
 	private Reseau(){
 		jonctions = new ArrayList<Jonction>();
 		segs = new ArrayList<Segment>();
+		voitures = new HashMap<String, Vehicule>();
 		
 		creerSegments();
 		creerJonctions();
-		//jonctions.forEach(items->System.out.println(items));
 		updateSegments();
 		ajouterSemaphores();
 		ajouterVoitures();
@@ -179,27 +180,30 @@ public final class Reseau {
 	public static void main(String[] args) {
 		Reseau.makeInstance();
 		boolean continuer = true;
-		Scanner choix = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Simulation de reseau routier");
 		do{
 			afficherMenu();
-			switch(choix.nextInt()){
+			switch(sc.nextInt()){
 			case 1:
 				deroulerIntervalle();
 				break;
 			case 2:
 				break;
 			case 3:
+				System.out.println(Reseau.reseau.voitures.get("Bazinmobile").toString());
 				break;
 			case 0:
 				continuer = false;
+				break;
 			default:
+				System.out.println("bite");
 				break;
 			}
 		} while(continuer);
 		
-		choix.close();
+		sc.close();
 	}
 
 }

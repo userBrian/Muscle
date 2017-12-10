@@ -20,15 +20,15 @@ public class Voiture extends Vehicule {
 	@Override
 	public void setVitesse(int vitesse){
 		if(vitesse <= vitesseMax){
-			if (vitesse > this.getDest().getVitesseMax())
-				vitesse = this.getDest().getVitesseMax();
+			if (vitesse > this.getSeg().getVitesseMax())
+				vitesse = this.getSeg().getVitesseMax();
 			this.vitesse=vitesse;
 		}
 	}
 
 	@Override
 	public String toString(){
-		return "La voiture " + this.getId() + " roule sur le segment ... a une vitesse de " + vitesse;
+		return "La voiture " + this.getId() + " roule sur le segment " + getSeg() + " a une vitesse de " + vitesse + " m/s.";
 	}
 	
 	
