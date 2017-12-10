@@ -2,16 +2,12 @@ import java.util.Observable;
 
 
 public abstract class Vehicule extends Observable{
-
-	/**
-	 * @param args
-	 */
 	
 	private final String id;
 	protected int vitesseMax;
 	protected int vitesse;
 	private int position;
-	private Segment dest;
+	private Segment seg;
 	
 	//manque l'initialisation du segment
 	// On peut pas le faire dans le construteur je pense
@@ -37,12 +33,12 @@ public abstract class Vehicule extends Observable{
 
 	public abstract void setVitesse(int vitesse);
 	
-	public Segment getDest() {
-		return dest;
+	public Segment getSeg() {
+		return seg;
 	}
 
-	public void setDest(Segment dest) {
-		this.dest = dest;
+	public void setDest(Segment seg) {
+		this.seg = seg;
 	}
 	
 	public String getId() {
