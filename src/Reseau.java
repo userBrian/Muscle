@@ -134,6 +134,10 @@ public final class Reseau {
 		Segment.setLettre((char)(Segment.getLettre()+1));
 	}
 	
+	private void deroulerIntervalle(){
+		
+	}
+	
 	private void updateSegments(){
 		segs.get(0).setJonc(jonctions.get(3));
 		segs.get(1).setJonc(jonctions.get(0));

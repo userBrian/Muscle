@@ -8,6 +8,7 @@ public abstract class Vehicule extends Observable{
 	 */
 	
 	private final String id;
+	protected int vitesseMax;
 	protected int vitesse;
 	private int position;
 	private Segment dest;
@@ -19,7 +20,6 @@ public abstract class Vehicule extends Observable{
 		this.vitesse = 0;
 		this.position = 0;
 	}
-	
 	
 	public int getPosition() {
 		return position;
@@ -47,12 +47,6 @@ public abstract class Vehicule extends Observable{
 	
 	public String getId() {
 		return id;
-	}
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

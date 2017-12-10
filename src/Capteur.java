@@ -31,15 +31,12 @@ public class Capteur implements Observer {
 		return id;
 	}
 
-	
-	
-	
 	public void update(Observable obs, Object arg){
 		if (obs instanceof Vehicule)
 		{	
 			Vehicule castObs = (Vehicule)obs;
 			if(castObs.getPosition()>=this.position)
-			System.out.println("Vehicule "+castObs.getId()+" détecté au capteur : "+ id);
+			System.out.println("Vehicule "+castObs.getId()+" detecte au capteur : "+ id);
 		}
 	}
 
