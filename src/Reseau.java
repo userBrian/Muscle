@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * 
@@ -23,7 +24,7 @@ public final class Reseau {
 		
 		creerSegments();
 		creerJonctions();
-		jonctions.forEach(items->System.out.println(items));
+		//jonctions.forEach(items->System.out.println(items));
 		updateSegments();
 		ajouterSemaphores();
 		ajouterVoitures();
@@ -166,14 +167,26 @@ public final class Reseau {
 	public static void main(String[] args) {
 		Reseau.makeInstance();
 		boolean continuer = true;
-		char choix;
+		Scanner choix = new Scanner(System.in);
 		
 		System.out.println("Simulation de reseau routier");
 		do{
 			afficherMenu();
-			
+			switch(choix.nextInt()){
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 0:
+				continuer = false;
+			default:
+				break;
+			}
 		} while(continuer);
-
+		
+		choix.close();
 	}
 
 }
