@@ -38,7 +38,10 @@ public final class Reseau {
 	 * Ajoute des sémaphores au réseau
 	 */
 	private void ajouterSemaphores(){
-		
+		segs.get(1).getSemaphores().add(new FeuTri());
+		segs.get(3).getSemaphores().add(new FeuTri());
+		segs.get(5).getSemaphores().add(new FeuTri());
+		segs.get(7).getSemaphores().add(new FeuTri());
 	}
 	
 	/**
@@ -80,19 +83,19 @@ public final class Reseau {
 		aAjouter.add(segs.get(15));	// H vers J3
 		jonctions.add(new Jonction(aAjouter));
 		
-		aAjouter.add(segs.get(3));	// H vers J3
+		aAjouter.add(segs.get(3));	// B vers J1
 		jonctions.add(new Jonction(aAjouter));
 		
-		aAjouter.add(segs.get(5));	// H vers J3
+		aAjouter.add(segs.get(5));	// C vers J1
 		jonctions.add(new Jonction(aAjouter));
 		
-		aAjouter.add(segs.get(9));	// H vers J3
+		aAjouter.add(segs.get(9));	// E vers J2
 		jonctions.add(new Jonction(aAjouter));
 		
-		aAjouter.add(segs.get(11));	// H vers J3
+		aAjouter.add(segs.get(11));	// F vers J2
 		jonctions.add(new Jonction(aAjouter));
 		
-		aAjouter.add(segs.get(17));	// H vers J3
+		aAjouter.add(segs.get(17));	// I vers J3
 		jonctions.add(new Jonction(aAjouter));
 	}
 	
