@@ -60,6 +60,8 @@ public final class Reseau {
 		segs.get(8).getVoitures().add(v2);	v2.setDest(segs.get(8));	v2.setPosition(5);	v2.setVitesse(segs.get(8).getVitesseMax());
 		segs.get(7).getVoitures().add(v3);	v3.setDest(segs.get(7));	v3.setPosition(0);	v3.setVitesse(segs.get(7).getVitesseMax());
 		segs.get(4).getVoitures().add(v4);	v4.setDest(segs.get(4));	v4.setPosition(0);	v4.setVitesse(segs.get(4).getVitesseMax());
+
+		voitures.put(v1.getId(), v1);	voitures.put(v2.getId(), v2);	voitures.put(v3.getId(), v3);	voitures.put(v4.getId(), v4);
 	}
 	
 	private void creerJonctions(){
@@ -141,7 +143,9 @@ public final class Reseau {
 	}
 	
 	private void deroulerIntervalle(){
-		
+		// Test
+		RegulateurBasique reg = new RegulateurBasique(Reseau.reseau.jonctions.get(0));
+		reg.nextStep();
 	}
 	
 	private void updateSegments(){
@@ -184,6 +188,7 @@ public final class Reseau {
 			afficherMenu();
 			switch(sc.nextInt()){
 			case 1:
+				Reseau.reseau.deroulerIntervalle();
 				break;
 			case 2:
 				break;

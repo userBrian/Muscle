@@ -72,6 +72,13 @@ public class RegulateurBasique extends Regulateur {
 		setChrono(0);
 	}
 	
+	public void nextStep(){
+		checkTraffic();
+		updateJonction();
+		System.out.println("au temps : " + getChrono());
+		printEtatJonction();
+	}
+	
 	@Override
 	public void updateJonction(){
 		incrementeChrono();
