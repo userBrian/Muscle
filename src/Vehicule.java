@@ -8,17 +8,18 @@ public abstract class Vehicule extends Observable{
 	 */
 	
 	private final String id;
+	protected int vitesseMax;
 	protected int vitesse;
 	private int position;
 	private Segment dest;
-	
+		
 	//manque l'initialisation du segment
+	// On peut pas le faire dans le construteur je pense
 	public Vehicule(String id) {
 		this.id = id;
 		this.vitesse = 0;
 		this.position = 0;
 	}
-	
 	
 	public int getPosition() {
 		return position;
@@ -46,12 +47,6 @@ public abstract class Vehicule extends Observable{
 	
 	public String getId() {
 		return id;
-	}
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

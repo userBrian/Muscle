@@ -24,7 +24,10 @@ public class Segment {
 	 */
 	public Segment(int longueur) {
 		voitures = new ArrayList<Voiture>();
+		semaphores = new ArrayList<Semaphore>();
+		capteurs = new ArrayList<Capteur>();
 		id = lettre;
+		//lettre++;
 		this.longueur = longueur;
 	}
 	

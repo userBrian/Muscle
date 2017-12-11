@@ -13,7 +13,7 @@ public class Voiture extends Vehicule {
 	 */
 	public Voiture(String id) {
 		super(id);
-		vitesseMax = 50;
+		vitesseMax = 30;
 	}
 	
 	//la vitesse ne peut pas etre superieur a ce qu'impose les semaphores

@@ -4,17 +4,23 @@ public abstract class Regulateur {
 	/**
 	 * @param args
 	 */
-	public Segment priorite;
-	public Jonction jonction;
-	public int chrono;
+	private Segment priorite;
+	private Jonction jonction;
+	private int chrono;
 	
 	public Regulateur(Jonction j){
 		this.jonction = j;
+		this.chrono = 0;
 	}
 	
-	
+	//Regarde le traffique et détermine quelle segment il faudrait prioriser
 	public abstract void checkTraffic();
+	//Modifie l'etat des feux de la jonction
 	public abstract void changeState();
+	//détermine quand faire à appel à changeState
+	public abstract void updateJonction();
+	//affichage de l'etat des feux de la jonction
+	public abstract void printEtatJonction();
 	
 	public Segment getPriorite(){
 		return this.priorite;
