@@ -13,6 +13,10 @@ public abstract class Feu implements Semaphore {
 	/**
 	 * 
 	 */
+	
+	public Feu(){
+		
+	}
 	public Feu(Couleur c) {
 		this.coul = c;
 		// TODO Auto-generated constructor stub

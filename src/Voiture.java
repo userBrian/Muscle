@@ -13,22 +13,22 @@ public class Voiture extends Vehicule {
 	 */
 	public Voiture(String id) {
 		super(id);
-		vitesseMax = 50;
 	}
 	
 	//la vitesse ne peut pas etre superieur a ce qu'impose les semaphores
 	@Override
 	public void setVitesse(int vitesse){
-		if(vitesse <= vitesseMax){
-			if (vitesse > this.getSeg().getVitesseMax())
-				vitesse = this.getSeg().getVitesseMax();
+		if(vitesse <= getDest().getVitesseMax()){
+			if (vitesse > this.getDest().getVitesseMax())
+				vitesse = this.getDest().getVitesseMax();
+
 			this.vitesse=vitesse;
 		}
 	}
 
 	@Override
 	public String toString(){
-		return "La voiture " + this.getId() + " roule sur le segment " + getSeg() + " a une vitesse de " + vitesse + " m/s.";
+		return "La voiture " + this.getId() + " roule sur le segment " + getDest() + " a une vitesse de " + vitesse + " m/s.";
 	}
 	
 	

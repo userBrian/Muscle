@@ -42,7 +42,6 @@ public final class Reseau {
 	 */
 	private void ajouterSemaphores(){
 		segs.get(1).getSemaphores().add(new FeuTri());
-		segs.get(1).getSemaphores().add(new PanneauVitesse(20));
 		segs.get(3).getSemaphores().add(new FeuTri());
 		segs.get(5).getSemaphores().add(new FeuTri());
 		segs.get(7).getSemaphores().add(new FeuTri());
@@ -57,12 +56,10 @@ public final class Reseau {
 		Voiture v3 = new Voiture("Batmobile");
 		Voiture v4 = new Voiture("Pussy Wagon");
 		
-		segs.get(1).getVoitures().add(v1);	v1.setDest(segs.get(0));	v1.setPosition(0);	v1.setVitesse(segs.get(0).getVitesseMax());
+		segs.get(0).getVoitures().add(v1);	v1.setDest(segs.get(0));	v1.setPosition(0);	v1.setVitesse(segs.get(0).getVitesseMax());
 		segs.get(8).getVoitures().add(v2);	v2.setDest(segs.get(8));	v2.setPosition(5);	v2.setVitesse(segs.get(8).getVitesseMax());
 		segs.get(7).getVoitures().add(v3);	v3.setDest(segs.get(7));	v3.setPosition(0);	v3.setVitesse(segs.get(7).getVitesseMax());
 		segs.get(4).getVoitures().add(v4);	v4.setDest(segs.get(4));	v4.setPosition(0);	v4.setVitesse(segs.get(4).getVitesseMax());
-	
-		voitures.put(v1.getId(), v1);	voitures.put(v2.getId(), v2);	voitures.put(v3.getId(), v3);	voitures.put(v4.getId(), v4);
 	}
 	
 	private void creerJonctions(){
@@ -143,7 +140,7 @@ public final class Reseau {
 		Segment.setLettre((char)(Segment.getLettre()+1));
 	}
 	
-	private static void deroulerIntervalle(){
+	private void deroulerIntervalle(){
 		
 	}
 	
@@ -187,7 +184,6 @@ public final class Reseau {
 			afficherMenu();
 			switch(sc.nextInt()){
 			case 1:
-				deroulerIntervalle();
 				break;
 			case 2:
 				break;
