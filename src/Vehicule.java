@@ -8,7 +8,6 @@ public abstract class Vehicule extends Observable{
 	 */
 	
 	private final String id;
-	protected int vitesseMax;
 	protected int vitesse;
 	private int position;
 	private Segment dest;

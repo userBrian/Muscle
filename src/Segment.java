@@ -29,6 +29,8 @@ public class Segment {
 		id = lettre;
 		//lettre++;
 		this.longueur = longueur;
+		
+		//RAJOUTER LE CALCUL DE VITESSEMAX
 	}
 	
 	public Jonction getJonc() {
