@@ -10,7 +10,7 @@ public abstract class Vehicule extends Observable{
 	private final String id;
 	protected int vitesse;
 	private int position;
-	private Segment dest;
+	private Segment seg;
 	protected int vitesseMax;
 		
 	//manque l'initialisation du segment
@@ -37,12 +37,12 @@ public abstract class Vehicule extends Observable{
 
 	public abstract void setVitesse(int vitesse);
 	
-	public Segment getDest() {
-		return dest;
+	public Segment getSeg() {
+		return seg;
 	}
 
-	public void setDest(Segment dest) {
-		this.dest = dest;
+	public void setSeg(Segment seg) {
+		this.seg = seg;
 	}
 	
 	public String getId() {
