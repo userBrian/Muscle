@@ -6,7 +6,7 @@
  * @author Brian
  *
  */
-public abstract class Feu implements Semaphore {
+public abstract class Feu extends Semaphore {
 
 	protected Couleur coul;
 	
@@ -18,6 +18,7 @@ public abstract class Feu implements Semaphore {
 		
 	}
 	public Feu(Couleur c) {
+		super();
 		this.coul = c;
 		// TODO Auto-generated constructor stub
 	}

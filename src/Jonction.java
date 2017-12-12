@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Jonction {
 
 	private ArrayList<Segment> segments;
+	private Vehicule car;
 	
 	public Jonction(ArrayList<Segment> segs) {
 		segments = new ArrayList<Segment>();

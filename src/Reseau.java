@@ -38,7 +38,7 @@ public final class Reseau {
 	}
 	
 	/**
-	 * Ajoute des sémaphores au réseau
+	 * Ajoute des sï¿½maphores au rï¿½seau
 	 */
 	private void ajouterSemaphores(){
 		segs.get(1).getSemaphores().add(new FeuTri());
@@ -48,7 +48,7 @@ public final class Reseau {
 	}
 	
 	/**
-	 * Ajoute des voitures au réseau
+	 * Ajoute des voitures au rï¿½seau
 	 */
 	private void ajouterVoitures(){
 		Voiture v1 = new Voiture("Bazinmobile");
@@ -56,10 +56,10 @@ public final class Reseau {
 		Voiture v3 = new Voiture("Batmobile");
 		Voiture v4 = new Voiture("Pussy Wagon");
 		
-		segs.get(0).getVoitures().add(v1);	v1.setDest(segs.get(0));	v1.setPosition(0);	v1.setVitesse(segs.get(0).getVitesseMax());
-		segs.get(8).getVoitures().add(v2);	v2.setDest(segs.get(8));	v2.setPosition(5);	v2.setVitesse(segs.get(8).getVitesseMax());
-		segs.get(7).getVoitures().add(v3);	v3.setDest(segs.get(7));	v3.setPosition(0);	v3.setVitesse(segs.get(7).getVitesseMax());
-		segs.get(4).getVoitures().add(v4);	v4.setDest(segs.get(4));	v4.setPosition(0);	v4.setVitesse(segs.get(4).getVitesseMax());
+		segs.get(0).getVoitures().add(v1);	v1.setDest(segs.get(0));	v1.setPosition(0);	v1.setVitesse(segs.get(0).vitesseLimite());
+		segs.get(8).getVoitures().add(v2);	v2.setDest(segs.get(8));	v2.setPosition(5);	v2.setVitesse(segs.get(8).vitesseLimite());
+		segs.get(7).getVoitures().add(v3);	v3.setDest(segs.get(7));	v3.setPosition(0);	v3.setVitesse(segs.get(7).vitesseLimite());
+		segs.get(4).getVoitures().add(v4);	v4.setDest(segs.get(4));	v4.setPosition(0);	v4.setVitesse(segs.get(4).vitesseLimite());
 
 		voitures.put(v1.getId(), v1);	voitures.put(v2.getId(), v2);	voitures.put(v3.getId(), v3);	voitures.put(v4.getId(), v4);
 	}

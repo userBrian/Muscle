@@ -22,6 +22,13 @@ public abstract class Regulateur {
 	//affichage de l'etat des feux de la jonction
 	public abstract void printEtatJonction();
 	
+	public void nextStep(){
+		checkTraffic();
+		updateJonction();
+		System.out.println("au temps : " + getChrono());
+		printEtatJonction();
+	}
+	
 	public Segment getPriorite(){
 		return this.priorite;
 	}

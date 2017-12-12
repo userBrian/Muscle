@@ -6,6 +6,10 @@
  * @author Brian
  *
  */
-public interface Semaphore {
+public abstract class Semaphore {
+	
+	public Semaphore(){
+		
+	}
 
 }

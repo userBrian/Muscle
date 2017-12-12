@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Brian
  *
  */
-public class Segment {
+public class Segment implements LimiteVitesse {
 
 	private int longueur;
 	private int vitesseMax;
@@ -29,8 +29,9 @@ public class Segment {
 		id = lettre;
 		//lettre++;
 		this.longueur = longueur;
+		//valeur inadmissible mise par defaut, en attendant le calcul d'une vraie valeur
+		vitesseMax = -1;
 		
-		//RAJOUTER LE CALCUL DE VITESSEMAX
 	}
 	
 	public Jonction getJonc() {
@@ -67,12 +68,26 @@ public class Segment {
 		this.voitures = voitures;
 	}
 
-	public int getVitesseMax() {
+	@Override
+	public int vitesseLimite(){
+		int limite = -1;
+		
+		for (int i = 0 ; i<semaphores.size() ; i++)
+		{
+			if (semaphores.get(i) instanceof LimiteVitesse)
+			{
+				if (limite == -1)
+					limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
+				else
+					if (limite > ((LimiteVitesse)semaphores.get(i)).vitesseLimite())
+						limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
+				
+					
+			}
+				
+		}
+		
 		return vitesseMax;
-	}
-
-	public void setVitesseMax(int vitesseMax) {
-		this.vitesseMax = vitesseMax;
 	}
 
 	@Override
@@ -80,5 +95,11 @@ public class Segment {
 		return id + "";
 	}
 	
-	//FONCTION UPDATE DES VOITURES
+	//FONCTION UPDATE DES VOITURE?
+	
+	public static void main(String[] args) {
+	Segment seg = new Segment(50);
+	seg.semaphores.add(e)
+
+	}
 }

@@ -6,7 +6,7 @@
  * @author Brian
  *
  */
-public class PanneauVitesse implements Semaphore {
+public class PanneauVitesse extends Semaphore implements LimiteVitesse {
 
 	/**
 	 */
@@ -14,10 +14,13 @@ public class PanneauVitesse implements Semaphore {
 	
 	
 	public PanneauVitesse(int vitesse) {
+		super();
 		this.vitesseLimite = vitesse;
 	}
 	
-	public int getVitesseLimite() {
+	@Override
+	public int vitesseLimite() {
 		return vitesseLimite;
 	}
+
 }
