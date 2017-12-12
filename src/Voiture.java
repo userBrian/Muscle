@@ -12,17 +12,17 @@ public class Voiture extends Vehicule {
 	 * 
 	 */
 	public Voiture(String id) {
-		super(id);
+		super(id, 20);
 	}
 	
 	//la vitesse ne peut pas etre superieur a ce qu'impose les semaphores
 	
 	@Override
 	public void setVitesse(int vitesse){
-		if(vitesse <= getSeg().getVitesseMax() && vitesse <= vitesseMax)
+		if(vitesse <= getSeg().vitesseLimite() && vitesse <= vitesseMax)
 			this.vitesse = vitesse;
 		else
-			this.vitesse = Math.min(getSeg().getVitesseMax(), vitesseMax);
+			this.vitesse = Math.min(getSeg().vitesseLimite(), vitesseMax);
 	}
 
 	@Override

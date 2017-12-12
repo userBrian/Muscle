@@ -11,14 +11,15 @@ public abstract class Vehicule extends Observable{
 	protected int vitesse;
 	private int position;
 	private Segment seg;
-	protected int vitesseMax;
+	protected final int vitesseMax;
 		
 	//manque l'initialisation du segment
 	// On peut pas le faire dans le construteur je pense
-	public Vehicule(String id) {
+	public Vehicule(String id, int vMax) {
 		this.id = id;
 		this.vitesse = 0;
 		this.position = 0;
+		vitesseMax = vMax;
 	}
 	
 	public int getPosition() {
