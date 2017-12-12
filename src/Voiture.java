@@ -19,10 +19,7 @@ public class Voiture extends Vehicule {
 	
 	@Override
 	public void setVitesse(int vitesse){
-		if(vitesse <= getSeg().vitesseLimite() && vitesse <= vitesseMax)
-			this.vitesse = vitesse;
-		else
-			this.vitesse = Math.min(getSeg().vitesseLimite(), vitesseMax);
+		this.vitesse = (vitesse <= vitesseMax) ? vitesse : vitesseMax;
 	}
 
 	@Override

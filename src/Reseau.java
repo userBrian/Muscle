@@ -28,6 +28,7 @@ public final class Reseau {
 		
 		creerSegments();
 		creerJonctions();
+		//jonctions.forEach(items->System.out.println(items.toString()));
 		updateSegments();
 		ajouterSemaphores();
 		ajouterVoitures();
