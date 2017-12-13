@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -68,7 +69,7 @@ public final class Reseau {
 		Voiture v3 = new Voiture("Batmobile");
 		Voiture v4 = new Voiture("Pussy Wagon");
 		
-		segs.get(0).getVoitures().add(v1);	v1.setSeg(segs.get(0));	v1.setPosition(0);	v1.setVitesse(segs.get(0).vitesseLimite());
+		segs.get(0).getVoitures().add(v1);	v1.setSeg(segs.get(0));	v1.setPosition(0);	
 		segs.get(8).getVoitures().add(v2);	v2.setSeg(segs.get(8));	v2.setPosition(5);	v2.setVitesse(segs.get(8).vitesseLimite());
 		segs.get(7).getVoitures().add(v3);	v3.setSeg(segs.get(7));	v3.setPosition(0);	v3.setVitesse(segs.get(7).vitesseLimite());
 		segs.get(4).getVoitures().add(v4);	v4.setSeg(segs.get(4));	v4.setPosition(0);	v4.setVitesse(segs.get(4).vitesseLimite());
@@ -165,7 +166,10 @@ public final class Reseau {
 	
 	private void deroulerIntervalle(){
 		// Test
-		
+		for(Map.Entry<String, Vehicule> e : voitures.entrySet()){
+			e.getValue().adapterAllure();
+			e.getValue().avancer();
+		}
 		reg.nextStep();
 	}
 	
@@ -205,11 +209,13 @@ public final class Reseau {
 	 */
 	public static void main(String[] args) {
 		Reseau.makeInstance();
+		System.out.println(Reseau.reseau.voitures.get("Bazinmobile").getVitesse());
 		boolean continuer = true;
 		Scanner sc = new Scanner(System.in);
 		Reseau.reseau.reg = new RegulateurBasique(Reseau.reseau.jonctions.get(0));
 		
-		System.out.println(Reseau.reseau.jonctions.get(0).toString());
+		//System.out.println(Reseau.reseau.jonctions.get(0).toString());
+		System.out.println(Reseau.reseau.jonctions.get(0).getSegments().get(0).getSemaphores().size());
 		
 		System.out.println("Simulation de reseau routier");
 		do{

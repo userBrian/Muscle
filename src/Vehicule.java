@@ -7,10 +7,10 @@ public abstract class Vehicule extends Observable{
 	 * @param args
 	 */
 	
-	private final String id;
+	protected final String id;
 	protected int vitesse;
-	private int position;
-	private Segment seg;
+	protected int position;
+	protected Segment seg;
 	protected final int vitesseMax;
 		
 	//manque l'initialisation du segment
@@ -20,6 +20,29 @@ public abstract class Vehicule extends Observable{
 		this.vitesse = 0;
 		this.position = 0;
 		vitesseMax = vMax;
+	}
+	
+	public void adapterAllure(){
+		if(!seg.getSemaphores().isEmpty()){
+			if(seg.getSemaphores().get(seg.getSemaphores().size()-1) instanceof Feu){
+				switch(((Feu)seg.getSemaphores().get(seg.getSemaphores().size()-1)).getCoul()){
+				case ROUGE:
+					vitesse = 0;
+					break;
+				case ORANGE:
+					vitesse /= 2;
+					break;
+				case VERT:
+					setVitesse(seg.vitesseLimite());
+					break;
+				}
+			}
+		}
+	}
+	
+	public void avancer(){
+		if(vitesse <= seg.getLongueur() - position)
+			position += vitesse;
 	}
 	
 	public int getPosition() {
@@ -50,4 +73,8 @@ public abstract class Vehicule extends Observable{
 		return id;
 	}
 
+	@Override
+	public String toString(){
+		return "Le vehicule " + id + " roule sur le segment " + seg.getId() + " a la position " + position + " a une vitesse de " + vitesse + " m/s.";
+	}
 }

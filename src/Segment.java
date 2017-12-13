@@ -38,6 +38,10 @@ public class Segment implements LimiteVitesse {
 		dest = j;
 	}
 	
+	public int getLongueur(){
+		return longueur;
+	}
+	
 	public Jonction getOrigine() {
 		return origine;
 	}
@@ -57,8 +61,6 @@ public class Segment implements LimiteVitesse {
 	public static void setLettre(char lettre) {
 		Segment.lettre = lettre;
 	}
-	
-	
 
 	public ArrayList<Semaphore> getSemaphores() {
 		return semaphores;
@@ -80,21 +82,16 @@ public class Segment implements LimiteVitesse {
 	public int vitesseLimite(){
 		int limite = -1;
 		
-		for (int i = 0 ; i<semaphores.size() ; i++)
-		{
-			if (semaphores.get(i) instanceof LimiteVitesse)
-			{
+		for (int i = 0 ; i<semaphores.size() ; i++){
+			if (semaphores.get(i) instanceof LimiteVitesse){
 				if (limite == -1)
 					limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
 				else
 					if (limite > ((LimiteVitesse)semaphores.get(i)).vitesseLimite())
 						limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
-				
-					
-			}
-				
+			}	
 		}
-		
+		vitesseMax = limite;
 		return vitesseMax;
 	}
 
