@@ -15,8 +15,9 @@ public class Segment implements LimiteVitesse {
 	private ArrayList<Semaphore> semaphores;
 	private ArrayList<Capteur> capteurs;
 	private ArrayList<Voiture> voitures;
-	private Jonction jonc;
-	public final char id;
+	private Jonction origine;
+	private Jonction dest;
+	private final char id;
 	private static char lettre = 'A';
 	
 	/**
@@ -27,19 +28,26 @@ public class Segment implements LimiteVitesse {
 		semaphores = new ArrayList<Semaphore>();
 		capteurs = new ArrayList<Capteur>();
 		id = lettre;
-		//lettre++;
 		this.longueur = longueur;
 		//valeur inadmissible mise par defaut, en attendant le calcul d'une vraie valeur
 		vitesseMax = -1;
 		
 	}
 	
-	public Jonction getJonc() {
-		return jonc;
+	public void setDest(Jonction j){
+		dest = j;
+	}
+	
+	public Jonction getOrigine() {
+		return origine;
 	}
 
-	public void setJonc(Jonction jonc) {
-		this.jonc = jonc;
+	public void setOrigine(Jonction jonc) {
+		origine = jonc;
+	}
+	
+	public char getId(){
+		return id;
 	}
 
 	public static char getLettre() {
@@ -92,14 +100,14 @@ public class Segment implements LimiteVitesse {
 
 	@Override
 	public String toString(){
-		return id + "";
+		return "Le segment " + id + " relie les jonctions " + origine.getId() + " et " + dest.getId();
 	}
 	
 	//FONCTION UPDATE DES VOITURE?
 	
 	public static void main(String[] args) {
 	Segment seg = new Segment(50);
-	seg.semaphores.add(e)
+	//seg.semaphores.add(e)
 
 	}
 }

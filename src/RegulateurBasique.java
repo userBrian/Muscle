@@ -39,7 +39,6 @@ public class RegulateurBasique extends Regulateur {
 		//la fonction ne fait donc rien
 	}
 	
-	//EN COURS D'ECRITURE
 	@Override
 	public void changeState(){
 
@@ -60,7 +59,7 @@ public class RegulateurBasique extends Regulateur {
 				feu = (FeuBi)getJonction().getSegments().get(i+1)
 					.getSemaphores().get(getJonction().getSegments().get(i+1).getSemaphores().size()-1);
 				feu.setCoul(Couleur.VERT);
-				this.setPriorite(getJonction().getSegments().get(i));
+				this.setPriorite(getJonction().getSegments().get(i+1));
 				
 				
 				break;
@@ -118,12 +117,9 @@ public class RegulateurBasique extends Regulateur {
 		meh.printEtatJonction();
 		
 		//Evolution en fonction du temps
-		for (int i= 1 ; i<5 ; i++)
+		for (int i= 1 ; i<15 ; i++)
 		{
-			meh.checkTraffic();
-			meh.updateJonction();
-			System.out.println("au temps : "+meh.getChrono());
-			meh.printEtatJonction();
+			meh.nextStep();
 			
 		}
 

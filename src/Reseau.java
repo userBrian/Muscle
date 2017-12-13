@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -17,6 +16,7 @@ public final class Reseau {
 	private ArrayList<Jonction> jonctions;
 	private ArrayList<Segment> segs;
 	private HashMap<String, Vehicule> voitures;
+	private RegulateurBasique reg;
 	
 	/**
 	 * 
@@ -28,10 +28,21 @@ public final class Reseau {
 		
 		creerSegments();
 		creerJonctions();
-		//jonctions.forEach(items->System.out.println(items.toString()));
+		//jonctions.forEach(System.out::println);
 		updateSegments();
+		addDest();
+		//segs.forEach(System.out::println);
 		ajouterSemaphores();
 		ajouterVoitures();
+		
+	}
+	
+	private void addDest(){
+		for(int i = 0; i < jonctions.size(); i++){
+			for(int j = 0; j < jonctions.get(i).getSegments().size(); j++)
+				jonctions.get(i).getSegments().get(j).setDest(jonctions.get(i));
+			//Reseau.reseau.jonctions.get(i).getSegments().forEach(setDest(jonctions.get(i)));
+		}
 	}
 	
 	private static void afficherMenu(){
@@ -42,10 +53,10 @@ public final class Reseau {
 	 * Ajoute des s�maphores au r�seau
 	 */
 	private void ajouterSemaphores(){
-		segs.get(1).getSemaphores().add(new FeuTri());
-		segs.get(3).getSemaphores().add(new FeuTri());
-		segs.get(5).getSemaphores().add(new FeuTri());
-		segs.get(7).getSemaphores().add(new FeuTri());
+		segs.get(0).getSemaphores().add(new FeuBi(Couleur.ROUGE));
+		segs.get(2).getSemaphores().add(new FeuBi(Couleur.ROUGE));
+		segs.get(4).getSemaphores().add(new FeuBi(Couleur.ROUGE));
+		segs.get(6).getSemaphores().add(new FeuBi(Couleur.ROUGE));
 	}
 	
 	/**
@@ -73,101 +84,114 @@ public final class Reseau {
 		aAjouter.add(segs.get(4));	// C vers B2
 		aAjouter.add(segs.get(6));	// D vers J2
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(7));	// D vers J1
 		aAjouter.add(segs.get(8));	// E vers B3	
 		aAjouter.add(segs.get(10));	// F vers B4
 		aAjouter.add(segs.get(12));	// G vers J3
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(13));	// G vers J2
 		aAjouter.add(segs.get(14));	// H vers J3
 		aAjouter.add(segs.get(16));	// I vers B5
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(1));	// A vers J1
 		aAjouter.add(segs.get(15));	// H vers J3
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(3));	// B vers J1
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(5));	// C vers J1
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(9));	// E vers J2
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(11));	// F vers J2
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 		
 		aAjouter.add(segs.get(17));	// I vers J3
 		jonctions.add(new Jonction(aAjouter));
+		Jonction.setNum((int)(Jonction.getNum()+1));
 	}
 	
 	private void creerSegments(){
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(20));
-		segs.add(new Segment(20));
+		segs.add( new Segment(20));
+		segs.add( new Segment(20));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 		
-		segs.add(new Segment(50));
-		segs.add(new Segment(50));
+		segs.add( new Segment(50));
+		segs.add( new Segment(50));
 		Segment.setLettre((char)(Segment.getLettre()+1));
 	}
 	
 	private void deroulerIntervalle(){
 		// Test
-		RegulateurBasique reg = new RegulateurBasique(Reseau.reseau.jonctions.get(0));
+		
 		reg.nextStep();
 	}
 	
+	public ArrayList<Segment> getSegs() {
+		return segs;
+	}
+	
 	private void updateSegments(){
-		segs.get(0).setJonc(jonctions.get(3));
-		segs.get(1).setJonc(jonctions.get(0));
-		segs.get(2).setJonc(jonctions.get(4));
-		segs.get(3).setJonc(jonctions.get(0));
-		segs.get(4).setJonc(jonctions.get(5));
-		segs.get(5).setJonc(jonctions.get(0));
-		segs.get(6).setJonc(jonctions.get(1));
-		segs.get(7).setJonc(jonctions.get(0));
-		segs.get(8).setJonc(jonctions.get(6));
-		segs.get(9).setJonc(jonctions.get(1));
-		segs.get(10).setJonc(jonctions.get(7));
-		segs.get(11).setJonc(jonctions.get(1));
-		segs.get(12).setJonc(jonctions.get(2));
-		segs.get(13).setJonc(jonctions.get(1));
-		segs.get(14).setJonc(jonctions.get(3));
-		segs.get(15).setJonc(jonctions.get(2));
-		segs.get(16).setJonc(jonctions.get(8));
-		segs.get(17).setJonc(jonctions.get(2));
+		segs.get(0).setOrigine(jonctions.get(3));
+		segs.get(1).setOrigine(jonctions.get(0));
+		segs.get(2).setOrigine(jonctions.get(4));
+		segs.get(3).setOrigine(jonctions.get(0));
+		segs.get(4).setOrigine(jonctions.get(5));
+		segs.get(5).setOrigine(jonctions.get(0));
+		segs.get(6).setOrigine(jonctions.get(1));
+		segs.get(7).setOrigine(jonctions.get(0));
+		segs.get(8).setOrigine(jonctions.get(6));
+		segs.get(9).setOrigine(jonctions.get(1));
+		segs.get(10).setOrigine(jonctions.get(7));
+		segs.get(11).setOrigine(jonctions.get(1));
+		segs.get(12).setOrigine(jonctions.get(2));
+		segs.get(13).setOrigine(jonctions.get(1));
+		segs.get(14).setOrigine(jonctions.get(3));
+		segs.get(15).setOrigine(jonctions.get(2));
+		segs.get(16).setOrigine(jonctions.get(8));
+		segs.get(17).setOrigine(jonctions.get(2));
 	}
 	
 	public final static Reseau makeInstance(){
@@ -183,6 +207,9 @@ public final class Reseau {
 		Reseau.makeInstance();
 		boolean continuer = true;
 		Scanner sc = new Scanner(System.in);
+		Reseau.reseau.reg = new RegulateurBasique(Reseau.reseau.jonctions.get(0));
+		
+		System.out.println(Reseau.reseau.jonctions.get(0).toString());
 		
 		System.out.println("Simulation de reseau routier");
 		do{
