@@ -80,18 +80,33 @@ public class Segment implements LimiteVitesse {
 
 	@Override
 	public int vitesseLimite(){
-		int limite = -1;
+		if (((Feu)semaphores.get(semaphores.size()-1)).getCoul() == Couleur.ROUGE)
+			vitesseMax = 0;
 		
-		for (int i = 0 ; i<semaphores.size() ; i++){
-			if (semaphores.get(i) instanceof LimiteVitesse){
-				if (limite == -1)
-					limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
-				else
-					if (limite > ((LimiteVitesse)semaphores.get(i)).vitesseLimite())
+		else
+		{
+			int limite = -1;
+			
+			for (int i = 0 ; i<semaphores.size() ; i++)
+			{
+				if (semaphores.get(i) instanceof LimiteVitesse)
+				{
+					if (limite == -1)
 						limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
-			}	
+					else
+						if (limite > ((LimiteVitesse)semaphores.get(i)).vitesseLimite())
+							limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
+					
+						
+				}
+					
+			}
+			vitesseMax = limite;
+			if (((Feu)semaphores.get(semaphores.size()-1)).getCoul() == Couleur.ORANGE)
+				vitesseMax = vitesseMax/2;
+
 		}
-		vitesseMax = limite;
+		
 		return vitesseMax;
 	}
 

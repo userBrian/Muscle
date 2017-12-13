@@ -11,8 +11,22 @@ public class FeuTri extends Feu {
 	/**
 	 * 
 	 */
-	public FeuTri() {
-		//super();
+	public FeuTri(Couleur c) {
+		super(c);
 	}
 
+	public void changeCouleur(){
+		if (coul == Couleur.ROUGE)
+			coul = Couleur.VERT;
+		
+		else
+		{
+			if (coul == Couleur.VERT)
+				coul = Couleur.ORANGE;
+			
+			else
+				if (coul == Couleur.ORANGE)
+					coul = Couleur.ROUGE;
+		}
+	}
 }
