@@ -34,6 +34,13 @@ public class Segment implements LimiteVitesse {
 		
 	}
 	
+	@Override
+	// red&finir equals
+	
+	public Jonction getDest(){
+		return dest;
+	}
+	
 	public void setDest(Jonction j){
 		dest = j;
 	}
@@ -83,32 +90,24 @@ public class Segment implements LimiteVitesse {
 		if (((Feu)semaphores.get(semaphores.size()-1)).getCoul() == Couleur.ROUGE)
 			vitesseMax = 0;
 		
-		else
-		{
+		else{
 			int limite = -1;
-			
-			for (int i = 0 ; i<semaphores.size() ; i++)
-			{
-				if (semaphores.get(i) instanceof LimiteVitesse)
-				{
+			for (int i = 0 ; i < semaphores.size() ; i++){
+				if (semaphores.get(i) instanceof LimiteVitesse){
 					if (limite == -1)
 						limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
 					else
 						if (limite > ((LimiteVitesse)semaphores.get(i)).vitesseLimite())
-							limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();
-					
-						
-				}
-					
+							limite = ((LimiteVitesse)semaphores.get(i)).vitesseLimite();		
+				}		
 			}
 			vitesseMax = limite;
 			if (((Feu)semaphores.get(semaphores.size()-1)).getCoul() == Couleur.ORANGE)
 				vitesseMax = vitesseMax/2;
-
 		}
 		
 		return vitesseMax;
-	}
+}
 
 	@Override
 	public String toString(){

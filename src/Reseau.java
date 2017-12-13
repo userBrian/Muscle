@@ -54,9 +54,13 @@ public final class Reseau {
 	 * Ajoute des s�maphores au r�seau
 	 */
 	private void ajouterSemaphores(){
+		segs.get(0).getSemaphores().add(new PanneauVitesse(18));
 		segs.get(0).getSemaphores().add(new FeuBi(Couleur.ROUGE));
+		segs.get(2).getSemaphores().add(new PanneauVitesse(18));
 		segs.get(2).getSemaphores().add(new FeuBi(Couleur.ROUGE));
+		segs.get(4).getSemaphores().add(new PanneauVitesse(18));
 		segs.get(4).getSemaphores().add(new FeuBi(Couleur.ROUGE));
+		segs.get(6).getSemaphores().add(new PanneauVitesse(18));
 		segs.get(6).getSemaphores().add(new FeuBi(Couleur.ROUGE));
 	}
 	
@@ -70,9 +74,9 @@ public final class Reseau {
 		Voiture v4 = new Voiture("Pussy Wagon");
 		
 		segs.get(0).getVoitures().add(v1);	v1.setSeg(segs.get(0));	v1.setPosition(0);	
-		segs.get(8).getVoitures().add(v2);	v2.setSeg(segs.get(8));	v2.setPosition(5);	v2.setVitesse(segs.get(8).vitesseLimite());
-		segs.get(7).getVoitures().add(v3);	v3.setSeg(segs.get(7));	v3.setPosition(0);	v3.setVitesse(segs.get(7).vitesseLimite());
-		segs.get(4).getVoitures().add(v4);	v4.setSeg(segs.get(4));	v4.setPosition(0);	v4.setVitesse(segs.get(4).vitesseLimite());
+		segs.get(8).getVoitures().add(v2);	v2.setSeg(segs.get(8));	v2.setPosition(5);	
+		segs.get(7).getVoitures().add(v3);	v3.setSeg(segs.get(7));	v3.setPosition(0);	
+		segs.get(4).getVoitures().add(v4);	v4.setSeg(segs.get(4));	v4.setPosition(0);	/*v4.setVitesse(segs.get(4).vitesseLimite());*/
 
 		voitures.put(v1.getId(), v1);	voitures.put(v2.getId(), v2);	voitures.put(v3.getId(), v3);	voitures.put(v4.getId(), v4);
 	}

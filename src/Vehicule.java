@@ -25,17 +25,7 @@ public abstract class Vehicule extends Observable{
 	public void adapterAllure(){
 		if(!seg.getSemaphores().isEmpty()){
 			if(seg.getSemaphores().get(seg.getSemaphores().size()-1) instanceof Feu){
-				switch(((Feu)seg.getSemaphores().get(seg.getSemaphores().size()-1)).getCoul()){
-				case ROUGE:
-					vitesse = 0;
-					break;
-				case ORANGE:
-					vitesse /= 2;
-					break;
-				case VERT:
-					setVitesse(seg.vitesseLimite());
-					break;
-				}
+				vitesse = seg.vitesseLimite();
 			}
 		}
 	}
@@ -43,6 +33,14 @@ public abstract class Vehicule extends Observable{
 	public void avancer(){
 		if(vitesse <= seg.getLongueur() - position)
 			position += vitesse;
+		else{
+			Segment seg2 = new Segment(seg.getLongueur());
+			do{
+				seg2 = (seg.getDest().getSegments().get((int)Math.random()*(seg.getDest().getSegments().size())));
+			}while(seg.equals(seg2));
+			seg = seg2;
+		}
+			
 	}
 	
 	public int getPosition() {
