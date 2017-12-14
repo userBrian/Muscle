@@ -1,0 +1,5 @@
+La classe Réseau fait office de controleur. On voulait mettre les fonctions d'affichage dans une autre classe (pour se rapprocher d'un pattern MVC) mais on n'a pas eu le temps).
+
+Est-ce qu'on garde la classe Sémaphore ?
+
+Est-ce qu'on garde la classe route ?

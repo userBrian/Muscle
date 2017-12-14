@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class Jonction extends Route {
 
 	private ArrayList<Segment> segments;
-	private Vehicule car;
 	private int id;
 	private static int num = 1;
 	

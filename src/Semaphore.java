@@ -7,9 +7,5 @@
  *
  */
 public abstract class Semaphore {
-	
-	public Semaphore(){
-		
-	}
 
 }

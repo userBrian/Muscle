@@ -20,13 +20,5 @@ public class CapteurVitesse extends Capteur{
 			System.out.println("Vehicule "+castObs.getId()+", vitesse : "+castObs.getVitesse()+" a "+this.getId());
 		}
 	}
-	
-	
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
