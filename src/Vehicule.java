@@ -13,8 +13,6 @@ public abstract class Vehicule extends Observable{
 	protected Segment seg;
 	protected final int vitesseMax;
 		
-	//manque l'initialisation du segment
-	// On peut pas le faire dans le construteur je pense
 	public Vehicule(String id, int vMax) {
 		this.id = id;
 		this.vitesse = 0;
@@ -22,6 +20,9 @@ public abstract class Vehicule extends Observable{
 		vitesseMax = vMax;
 	}
 	
+	/**
+	 * Adapte la vitesse de la voiture a son environnement (segment de route, semaphores)
+	 */
 	public void adapterAllure(){
 		if(!seg.getSemaphores().isEmpty()){
 			if(seg.getSemaphores().get(seg.getSemaphores().size()-1) instanceof Feu){
@@ -30,10 +31,14 @@ public abstract class Vehicule extends Observable{
 		}
 	}
 	
+	/**
+	 * Fait avancer la voiture 
+	 */
 	public void avancer(){
-		if(vitesse <= seg.getLongueur() - position)
+		if(vitesse <= Math.abs(seg.getLongueur() - position))
 			setPosition(position + vitesse);
 		else{
+			setPosition(vitesse - (Math.abs(seg.getLongueur() - position)));
 			seg = seg.getDest().getSegments().get((int)(Math.random()*(seg.getDest().getSegments().size())));
 			int i = 0;
 			Segment seg2;
@@ -41,7 +46,7 @@ public abstract class Vehicule extends Observable{
 				seg2 = seg.getOrigine().getSegments().get(i);
 				i++;
 			}while(!(seg.getId() == seg2.getId()));
-			setPosition(vitesse - (seg.getLongueur() - position));
+			
 			seg = seg2;
 			for(Capteur c : seg.getCapteurs())
 			{

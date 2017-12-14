@@ -14,7 +14,6 @@ public class Segment extends Route implements LimiteVitesse {
 	private int vitesseMax;
 	private ArrayList<Semaphore> semaphores;
 	private ArrayList<Capteur> capteurs;
-	private ArrayList<Voiture> voitures;
 	private Jonction origine;
 	private Jonction dest;
 	private final char id;
@@ -25,7 +24,6 @@ public class Segment extends Route implements LimiteVitesse {
 	 */
 	public Segment(int longueur) {
 		super();
-		voitures = new ArrayList<Voiture>();
 		semaphores = new ArrayList<Semaphore>();
 		capteurs = new ArrayList<Capteur>();
 		id = lettre;
@@ -83,14 +81,6 @@ public class Segment extends Route implements LimiteVitesse {
 	public void setSemaphores(ArrayList<Semaphore> semaphores) {
 		this.semaphores = semaphores;
 	}
-
-	public ArrayList<Voiture> getVoitures() {
-		return voitures;
-	}
-
-	public void setVoitures(ArrayList<Voiture> voitures) {
-		this.voitures = voitures;
-	}
 	
 	public ArrayList<Capteur> getCapteurs(){
 		return this.capteurs;
@@ -123,13 +113,5 @@ public class Segment extends Route implements LimiteVitesse {
 	@Override
 	public String toString(){
 		return "Le segment " + id + " relie les jonctions " + origine.getId() + " et " + dest.getId();
-	}
-	
-	//FONCTION UPDATE DES VOITURE?
-	
-	public static void main(String[] args) {
-	Segment seg = new Segment(50);
-	//seg.semaphores.add(e)
-
 	}
 }

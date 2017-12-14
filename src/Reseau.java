@@ -53,12 +53,12 @@ public final class Reseau {
 	private void ajouterCapteurs(){
 		segs.get(0).getCapteurs().add(new Capteur("Beau capteur", 10));
 		segs.get(1).getCapteurs().add(new Capteur("Beau capteur", 10));
-		segs.get(2).getCapteurs().add(new Capteur("Beau capteur", 5));
-		segs.get(3).getCapteurs().add(new Capteur("Beau capteur", 45));
-		segs.get(4).getCapteurs().add(new Capteur("Beau capteur", 30));
-		segs.get(5).getCapteurs().add(new Capteur("Beau capteur", 20));
-		segs.get(6).getCapteurs().add(new Capteur("Beau capteur", 15));
-		segs.get(7).getCapteurs().add(new Capteur("Beau capteur", 35));
+		segs.get(2).getCapteurs().add(new Capteur("Capteur style", 5));
+		segs.get(3).getCapteurs().add(new Capteur("Capteur style", 45));
+		segs.get(4).getCapteurs().add(new Capteur("Capteur sympathique", 30));
+		segs.get(5).getCapteurs().add(new Capteur("Capteur sympathique", 20));
+		segs.get(6).getCapteurs().add(new Capteur("Un capteur sachant capter", 15));
+		segs.get(7).getCapteurs().add(new Capteur("Un capteur sachant capter", 35));
 	}
 	
 	/**
@@ -84,10 +84,10 @@ public final class Reseau {
 		Voiture v3 = new Voiture("Batmobile");
 		Voiture v4 = new Voiture("Pussy Wagon");
 		
-		segs.get(0).getVoitures().add(v1);	v1.setSeg(segs.get(0));	v1.setPosition(0);	
-		segs.get(8).getVoitures().add(v2);	v2.setSeg(segs.get(8));	v2.setPosition(5);	
-		segs.get(7).getVoitures().add(v3);	v3.setSeg(segs.get(7));	v3.setPosition(0);	
-		segs.get(4).getVoitures().add(v4);	v4.setSeg(segs.get(4));	v4.setPosition(0);	/*v4.setVitesse(segs.get(4).vitesseLimite());*/
+		v1.setSeg(segs.get(0));	v1.setPosition(0);	
+		v2.setSeg(segs.get(8));	v2.setPosition(5);	
+		v3.setSeg(segs.get(7));	v3.setPosition(0);	
+		v4.setSeg(segs.get(4));	v4.setPosition(0);	
 
 		voitures.put(v1.getId(), v1);	voitures.put(v2.getId(), v2);	voitures.put(v3.getId(), v3);	voitures.put(v4.getId(), v4);
 	}
