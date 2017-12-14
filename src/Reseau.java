@@ -213,7 +213,7 @@ public final class Reseau {
 	 */
 	public static void main(String[] args) {
 		Reseau.makeInstance();
-		System.out.println(Reseau.reseau.voitures.get("Bazinmobile").getVitesse());
+		System.out.println(Reseau.reseau.voitures.get("Bazinmobile").getSeg().getDest().getSegments().size());
 		boolean continuer = true;
 		Scanner sc = new Scanner(System.in);
 		Reseau.reseau.reg = new RegulateurBasique(Reseau.reseau.jonctions.get(0));

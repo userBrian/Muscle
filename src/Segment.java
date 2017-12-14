@@ -35,7 +35,13 @@ public class Segment implements LimiteVitesse {
 	}
 	
 	@Override
-	// red&finir equals
+	public boolean equals(Object o){
+		if(this == o) return true;
+		else if (o == null) return false;
+		else if(o instanceof Segment)
+			return (id == ((Segment) o).getId());
+		return false;
+	}
 	
 	public Jonction getDest(){
 		return dest;
