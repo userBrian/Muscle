@@ -40,6 +40,7 @@ public abstract class Vehicule extends Observable{
 				i = (int)(Math.random()*(seg.getDest().getSegments().size()));
 				seg2 = (seg.getDest().getSegments().get(i));
 			}while(seg.equals(seg2));
+			
 			position = vitesse - (seg.getLongueur() - position);
 			seg = seg2;
 		}
