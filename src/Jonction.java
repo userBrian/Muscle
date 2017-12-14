@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Brian
  *
  */
-public class Jonction {
+public class Jonction extends Route {
 
 	private ArrayList<Segment> segments;
 	private Vehicule car;
@@ -16,6 +16,7 @@ public class Jonction {
 	private static int num = 1;
 	
 	public Jonction(ArrayList<Segment> segs) {
+		super();
 		segments = new ArrayList<Segment>();
 		id = num;
 		while(!segs.isEmpty()){

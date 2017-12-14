@@ -43,6 +43,10 @@ public abstract class Vehicule extends Observable{
 			}while(!(seg.getId() == seg2.getId()));
 			position = vitesse - (seg.getLongueur() - position);
 			seg = seg2;
+			for(Capteur c : seg.getCapteurs())
+			{
+				this.addObserver(c);
+			}
 		}
 	}
 	
