@@ -37,6 +37,7 @@ public class Capteur implements Observer {
 			Vehicule castObs = (Vehicule)obs;
 			if(castObs.getPosition()>=this.position)
 			System.out.println("Vehicule "+castObs.getId()+" detecte au capteur : "+ id);
+			obs.deleteObserver(this);
 		}
 	}
 

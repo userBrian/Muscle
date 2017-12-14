@@ -15,7 +15,7 @@ public class FeuTri extends Feu {
 		super(c);
 	}
 
-	public void changeCouleur(){
+	public Couleur changeCouleur(){
 		if (coul == Couleur.ROUGE)
 			coul = Couleur.VERT;
 		
@@ -25,8 +25,12 @@ public class FeuTri extends Feu {
 				coul = Couleur.ORANGE;
 			
 			else
+			{
 				if (coul == Couleur.ORANGE)
 					coul = Couleur.ROUGE;
+			}
 		}
+		
+		return coul;
 	}
 }

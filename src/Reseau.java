@@ -65,7 +65,7 @@ public final class Reseau {
 	}
 	
 	/**
-	 * Ajoute des voitures au r�seau
+	 * Ajoute des voitures au réseau
 	 */
 	private void ajouterVoitures(){
 		Voiture v1 = new Voiture("Bazinmobile");

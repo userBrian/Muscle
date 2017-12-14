@@ -15,7 +15,8 @@ public class FeuBi extends Feu {
 		super(c);
 	}
 
-	public void changeCouleur(){
+	public Couleur changeCouleur(){
 			coul = (coul == Couleur.ROUGE)? Couleur.VERT : Couleur.ROUGE;
+			return coul;
 	}
 }
