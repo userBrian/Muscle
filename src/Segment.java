@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Brian
  *
  */
-public class Segment implements LimiteVitesse {
+public class Segment extends Route implements LimiteVitesse {
 
 	private int longueur;
 	private int vitesseMax;
@@ -24,6 +24,7 @@ public class Segment implements LimiteVitesse {
 	 * 
 	 */
 	public Segment(int longueur) {
+		super();
 		voitures = new ArrayList<Voiture>();
 		semaphores = new ArrayList<Semaphore>();
 		capteurs = new ArrayList<Capteur>();
@@ -89,6 +90,10 @@ public class Segment implements LimiteVitesse {
 
 	public void setVoitures(ArrayList<Voiture> voitures) {
 		this.voitures = voitures;
+	}
+	
+	public ArrayList<Capteur> getCapteurs(){
+		return this.capteurs;
 	}
 
 	@Override

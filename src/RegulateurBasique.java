@@ -78,7 +78,7 @@ public class RegulateurBasique extends Regulateur {
 	@Override
 	public void updateJonction(){
 		incrementeChrono();
-		if (this.getChrono() == 3)
+		if (this.getChrono() == 2)
 		{
 			changeState();
 			this.setChrono(0);
