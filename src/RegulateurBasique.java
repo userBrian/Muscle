@@ -15,8 +15,8 @@ public class RegulateurBasique extends Regulateur {
 		nbFeux = j.getSegments().size();
 		for (int i = 0 ; i<nbFeux ; i++)
 		{
-				//On considère que le sémaphore récupéré est forcément un feubi
-				FeuBi feu = (FeuBi)getJonction().getSegments().get(i)
+				//On considère que le sémaphore récupéré est forcément un Feu
+				Feu feu = (Feu)getJonction().getSegments().get(i)
 				.getSemaphores().get(getJonction().getSegments().get(i).getSemaphores().size()-1);
 			
 			if (i != 0)
@@ -44,26 +44,28 @@ public class RegulateurBasique extends Regulateur {
 
 		for (int i = 0 ; i<nbFeux ; i++)
 		{
-			//On considère que le sémaphore récupéré est forcément un FeuBi
-			FeuBi feu = (FeuBi)getJonction().getSegments().get(i)
+			//On considère que le sémaphore récupéré est forcément un Feu
+			Feu feu = (Feu)getJonction().getSegments().get(i)
 					.getSemaphores().get(getJonction().getSegments().get(i).getSemaphores().size()-1);
 			
-			//Si le feu trouvé est vert, on le met à rouge, et on met le feu suivant à vert
-			if (feu.getCoul() == Couleur.VERT)
+			if (!(feu.getCoul().equals(Couleur.ROUGE)))
 			{
-				feu.setCoul(Couleur.ROUGE);
-				
-				if (i == nbFeux-1)
-						i=-1;
-				
-				feu = (FeuBi)getJonction().getSegments().get(i+1)
-					.getSemaphores().get(getJonction().getSegments().get(i+1).getSemaphores().size()-1);
-				feu.setCoul(Couleur.VERT);
-				this.setPriorite(getJonction().getSegments().get(i+1));
-				
+				Couleur coul = feu.changeCouleur();
+				System.out.println(coul);
+				if(coul.equals(Couleur.ROUGE))
+				{
+					System.out.println(coul);
+					System.out.println("ok");
+					if (i == nbFeux-1)
+							i=-1;
+					
+					feu = (Feu)getJonction().getSegments().get(i+1)
+						.getSemaphores().get(getJonction().getSegments().get(i+1).getSemaphores().size()-1);
+					feu.setCoul(Couleur.VERT);
+					this.setPriorite(getJonction().getSegments().get(i+1));
+				}
 				
 				break;
-				
 			}
 			
 		}		
@@ -85,10 +87,10 @@ public class RegulateurBasique extends Regulateur {
 	
 	@Override
 	public void printEtatJonction(){
-		FeuBi feu;
+		Feu feu;
 		for (int i= 0 ; i<nbFeux ; i++)
 		{
-			feu = (FeuBi)getJonction().getSegments().get(i)
+			feu = (Feu)getJonction().getSegments().get(i)
 				.getSemaphores().get(getJonction().getSegments().get(i).getSemaphores().size()-1);
 			
 			System.out.println("Le feu n."+i+" est "+feu.getCoul());
@@ -102,12 +104,12 @@ public class RegulateurBasique extends Regulateur {
 		
 		//Creation d'une jonction basique
 		ArrayList<Segment> seg = new ArrayList<Segment>();
-		FeuBi feu;
+		Feu feu;
 		for (int i= 0 ; i<3 ; i++)
 		{
 			seg.add(new Segment(50));
-			seg.get(i).getSemaphores().add(new FeuBi(Couleur.ROUGE));
-			feu = (FeuBi)seg.get(i).getSemaphores().get(0);
+			seg.get(i).getSemaphores().add(new FeuTri(Couleur.ROUGE));
+			feu = (Feu)seg.get(i).getSemaphores().get(0);
 			System.out.println(feu.getCoul());
 		}
 		
@@ -122,7 +124,6 @@ public class RegulateurBasique extends Regulateur {
 			meh.nextStep();
 			
 		}
-
 	}
 
 }

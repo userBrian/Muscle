@@ -32,6 +32,6 @@ public abstract class Feu extends Semaphore {
 		return this.coul;
 	}
 	
-	public abstract void changeCouleur();
+	public abstract Couleur changeCouleur();
 
 }
