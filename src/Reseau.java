@@ -35,7 +35,7 @@ public final class Reseau {
 		//segs.forEach(System.out::println);
 		ajouterSemaphores();
 		ajouterVoitures();
-		
+		ajouterCapteurs();
 	}
 	
 	private void addDest(){
@@ -48,6 +48,11 @@ public final class Reseau {
 	
 	private static void afficherMenu(){
 		System.out.println("1. Derouler un intervalle de temps\n2. Consulter segment\n3. Consulter vehicules");
+	}
+	
+	private void ajouterCapteurs(){
+		segs.get(0).getCapteurs().add(new Capteur(15));
+		segs.get(1).getCapteurs().add(new Capteur(35));
 	}
 	
 	/**
@@ -231,7 +236,8 @@ public final class Reseau {
 			case 2:
 				break;
 			case 3:
-				System.out.println(Reseau.reseau.voitures.get("Bazinmobile").toString());
+				//System.out.println(Reseau.reseau.voitures.get("Bazinmobile").toString());
+				Reseau.reseau.voitures.values().forEach(System.out::println);
 				break;
 			case 0:
 				continuer = false;
