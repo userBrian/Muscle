@@ -51,8 +51,14 @@ public final class Reseau {
 	}
 	
 	private void ajouterCapteurs(){
-		segs.get(0).getCapteurs().add(new Capteur(15));
-		segs.get(1).getCapteurs().add(new Capteur(35));
+		segs.get(0).getCapteurs().add(new Capteur("Beau capteur", 10));
+		segs.get(1).getCapteurs().add(new Capteur("Beau capteur", 10));
+		segs.get(2).getCapteurs().add(new Capteur("Beau capteur", 5));
+		segs.get(3).getCapteurs().add(new Capteur("Beau capteur", 45));
+		segs.get(4).getCapteurs().add(new Capteur("Beau capteur", 30));
+		segs.get(5).getCapteurs().add(new Capteur("Beau capteur", 20));
+		segs.get(6).getCapteurs().add(new Capteur("Beau capteur", 15));
+		segs.get(7).getCapteurs().add(new Capteur("Beau capteur", 35));
 	}
 	
 	/**

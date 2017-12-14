@@ -32,7 +32,7 @@ public abstract class Vehicule extends Observable{
 	
 	public void avancer(){
 		if(vitesse <= seg.getLongueur() - position)
-			position += vitesse;
+			setPosition(position + vitesse);
 		else{
 			seg = seg.getDest().getSegments().get((int)(Math.random()*(seg.getDest().getSegments().size())));
 			int i = 0;
@@ -41,7 +41,7 @@ public abstract class Vehicule extends Observable{
 				seg2 = seg.getOrigine().getSegments().get(i);
 				i++;
 			}while(!(seg.getId() == seg2.getId()));
-			position = vitesse - (seg.getLongueur() - position);
+			setPosition(vitesse - (seg.getLongueur() - position));
 			seg = seg2;
 			for(Capteur c : seg.getCapteurs())
 			{
