@@ -31,20 +31,19 @@ public abstract class Vehicule extends Observable{
 	}
 	
 	public void avancer(){
-		int i;
 		if(vitesse <= seg.getLongueur() - position)
 			position += vitesse;
 		else{
-			Segment seg2 = new Segment(seg.getLongueur());
+			seg = seg.getDest().getSegments().get((int)(Math.random()*(seg.getDest().getSegments().size())));
+			int i = 0;
+			Segment seg2;
 			do{
-				i = (int)(Math.random()*(seg.getDest().getSegments().size()));
-				seg2 = (seg.getDest().getSegments().get(i));
-			}while(seg.equals(seg2));
-			
+				seg2 = seg.getOrigine().getSegments().get(i);
+				i++;
+			}while(!(seg.getId() == seg2.getId()));
 			position = vitesse - (seg.getLongueur() - position);
 			seg = seg2;
 		}
-			
 	}
 	
 	public int getPosition() {

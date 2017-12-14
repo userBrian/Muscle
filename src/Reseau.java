@@ -56,11 +56,11 @@ public final class Reseau {
 	private void ajouterSemaphores(){
 		segs.get(0).getSemaphores().add(new PanneauVitesse(18));
 		segs.get(0).getSemaphores().add(new FeuBi(Couleur.ROUGE));
-		segs.get(2).getSemaphores().add(new PanneauVitesse(18));
+		segs.get(2).getSemaphores().add(new PanneauVitesse(15));
 		segs.get(2).getSemaphores().add(new FeuBi(Couleur.ROUGE));
-		segs.get(4).getSemaphores().add(new PanneauVitesse(18));
+		segs.get(4).getSemaphores().add(new PanneauVitesse(19));
 		segs.get(4).getSemaphores().add(new FeuBi(Couleur.ROUGE));
-		segs.get(6).getSemaphores().add(new PanneauVitesse(18));
+		segs.get(6).getSemaphores().add(new PanneauVitesse(10));
 		segs.get(6).getSemaphores().add(new FeuBi(Couleur.ROUGE));
 	}
 	
